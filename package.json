@@ -1,0 +1,50 @@
+{
+  "name": "redux-routing-context",
+  "version": "1.0.0",
+  "devDependencies": {
+    "babel": "^6.1.18",
+    "babel-cli": "^6.2.0",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "eslint": "^1.10.3",
+    "eslint-config-andyet-react": "^1.2.2",
+    "eslint-plugin-react": "^3.16.1",
+    "expect": "^1.14.0",
+    "hjs-webpack": "^5.1.0",
+    "karma": "^0.13.21",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-cli": "^0.1.2",
+    "karma-mocha": "^0.2.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.4",
+    "react": "0.14.x",
+    "react-dom": "0.14.x",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "license": "ISC",
+  "main": "lib/index.js",
+  "peerDependencies": {
+    "react": "0.14.x"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ],
+  "scripts": {
+    "build": "babel ./modules --loose all -d lib --ignore '__tests__'",
+    "karma": "NODE_ENV=test karma start",
+    "lint": "eslint .",
+    "postinstall": "node ./npm-scripts/postinstall.js",
+    "prepublish": "npm run build",
+    "start": "webpack-dev-server --config ./example/webpack.config.js",
+    "test": "npm run karma -- --browsers PhantomJS",
+    "test:chrome": "npm run karma -- --browsers Chrome --no-single-run --auto-watch",
+    "test:watch": "npm test -- --browsers PhantomJS --no-single-run --auto-watch"
+  }
+}
